@@ -13,5 +13,9 @@
             $this->doc = new DomDocument();
             @$this->doc->loadHTML(file_get_contents($url, false, $context));
         }
+
+        public function getLinks() {
+            return $this->doc->getElementsByTagName("a");
+        }
     }
 ?>
