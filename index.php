@@ -14,7 +14,7 @@
     <div class="wrapper indexPage">
         <div class="mainSection">
             <div class="logoContainer">
-                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="">
+                <img src="assets/images/search_logo.svg" alt="">
             </div>
             <div class="searchContainer">
                 <form action="search.php" method="GET">
