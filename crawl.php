@@ -46,7 +46,26 @@
             return;
         }
 
-        echo "URL: $url, Title: $title <br>";
+        $description = "";
+        $keywords = "";
+
+        $metasArray = $parser->getMetaTags();
+
+        foreach ($metasArray as $meta) {
+            
+            if ($meta->getAttribute("name") == "description") {
+                $description = $meta->getAttribute("content");
+            }
+            
+            if ($meta->getAttribute("name") == "keywords") {
+                $keywords = $meta->getAttribute("content");
+            }
+        }
+
+        $description = str_replace("\n", "", $description);
+        $keywords = str_replace("\n", "", $keywords);
+
+        // echo "URL: $url, Title: $title, Description: $description, Keywords: $keywords <br>";
     }
 
     function followLinks($url) {
