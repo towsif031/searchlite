@@ -1,4 +1,6 @@
 <?php
+    ini_set('max_execution_time', 0); // for infinite time of execution 
+
     include("config.php");
     include("classes/DomDocumentParser.php");
 
