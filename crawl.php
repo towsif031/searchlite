@@ -4,6 +4,7 @@
 
     $alreadyCrawled = array();
     $crawling = array();
+    $alreadyFoundImages = array();
 
     function linkExists($url) {
         global $con;
@@ -104,6 +105,26 @@
             echo "Failed to insert $url <br>";
         }
         
+        $imageArray = $parser->getImages();
+
+        foreach ($imageArray as $image) {
+            $src = $image->getAttribute("src");
+            $alt = $image->getAttribute("alt");
+            $title = $image->getAttribute("title");
+            
+            if (!$title && !$alt) {
+                continue;
+            }
+
+            $src = createLink($src, $url);
+
+            if (!in_array($src, $alreadyFoundImages)) {
+                $alreadyFoundImages[] = $src;
+
+                // insert the image
+            }
+        }
+
     }
 
     function followLinks($url) {
