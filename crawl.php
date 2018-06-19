@@ -5,6 +5,18 @@
     $alreadyCrawled = array();
     $crawling = array();
 
+    function linkExists($url) {
+        global $con;
+
+        $query = $con->prepare("SELECT * FROM sites WHERE url = :url");
+
+        $query->bindParam(":url", $url);
+
+        $query->execute();
+
+        return $query->rowCount() != 0;
+    }
+
     function insertLink($url, $title, $description, $keywords) {
         global $con;
 
@@ -82,7 +94,16 @@
 
         // echo "URL: $url, Title: $title, Description: $description, Keywords: $keywords <br>";
 
-        insertLink($url, $title, $description, $keywords);
+        if (linkExists($url)) {
+            echo "$url already Exists. <br>";
+        }
+        else if(insertLink($url, $title, $description, $keywords)) {
+            echo "SUCCESS: $url <br>";
+        }
+        else {
+            echo "Failed to insert $url <br>";
+        }
+        
     }
 
     function followLinks($url) {
@@ -122,7 +143,7 @@
         }
     }
 
-    $startUrl = "http://www.bbc.com";
+    $startUrl = "http://www.prothomalo.com";
 
     followLinks($startUrl);
 ?>
