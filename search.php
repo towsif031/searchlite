@@ -1,5 +1,6 @@
 <?php
     include("config.php");
+    include("classes/SearchResultsProvider.php");
 
     if(isset($_GET["term"])){
         $term = $_GET["term"];
@@ -56,6 +57,16 @@
                     </li>
                 </ul>
             </div>
+        </div>
+
+        <div class="mainResultsSection">
+            <?php
+                $resultsProvider = new SearchResultsProvider($con);
+
+                $numResults = $resultsProvider->getNumResults($term);
+
+                echo "<p class='resultsCount'>$numResults results found</p>";
+            ?>
         </div>
     </div>
 </body>
