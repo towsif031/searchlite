@@ -1,6 +1,6 @@
 <?php
     include("config.php");
-    include("classes/SearchResultsProvider.php");
+    include("classes/SiteResultsProvider.php");
 
     if(isset($_GET["term"])){
         $term = $_GET["term"];
@@ -61,11 +61,13 @@
 
         <div class="mainResultsSection">
             <?php
-                $resultsProvider = new SearchResultsProvider($con);
+                $resultsProvider = new SiteResultsProvider($con);
 
                 $numResults = $resultsProvider->getNumResults($term);
 
                 echo "<p class='resultsCount'>$numResults results found</p>";
+
+                echo $resultsProvider->getResultsHtml(1, 20, $term);
             ?>
         </div>
     </div>
