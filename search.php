@@ -8,11 +8,8 @@
         echo "No search term";
     }
 
-    if(isset($_GET["type"])){
-        $type = $_GET["type"];
-    } else {
-        $type = "sites";
-    }
+    $type = isset($_GET["type"]) ? $_GET["type"] : "sites";
+    $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 ?>
 
 <!DOCTYPE html>
@@ -62,13 +59,42 @@
         <div class="mainResultsSection">
             <?php
                 $resultsProvider = new SiteResultsProvider($con);
+                $pageLimit = 20;
 
                 $numResults = $resultsProvider->getNumResults($term);
 
                 echo "<p class='resultsCount'>$numResults results found</p>";
 
-                echo $resultsProvider->getResultsHtml(1, 20, $term);
+                echo $resultsProvider->getResultsHtml($page, $pageLimit, $term);
             ?>
+        </div>
+
+        <div class="paginationContainer">
+            <div class="pageButtons">
+                <div class="pageNumberContainer">
+                    <img src="assets/images/pageStart.svg" alt="">
+                </div>
+
+                <?php
+
+                    $currentPage = 1;
+                    $pagesLeft =10;
+
+                    while ($pagesLeft != 0) {
+                        echo "<div class='pageNumberContainer'>
+                                    <img src='assets/images/page.svg'>
+                                    <span class='pageNumber'>$currentPage</span>
+                                </div>";
+
+                        $currentPage++;
+                        $pagesLeft--;
+                    }
+                ?>
+
+                <div class="pageNumberContainer">
+                    <img src="assets/images/pageEnd.svg" alt="">
+                </div>
+            </div>
         </div>
     </div>
 </body>
