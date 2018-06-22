@@ -39,7 +39,7 @@
                 <div class="searchContainer">
                     <form action="search.php" method="GET">
                         <div class="searchBarContainer">
-                            <input type="text" class="searchBox" name="term">
+                            <input type="text" class="searchBox" name="term" value="<?php echo $term; ?>">
                             <button class="searchButton">
                                 <img src="assets/images/icons/searching_icon.svg" alt="">
                             </button>
