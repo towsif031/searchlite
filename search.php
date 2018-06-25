@@ -133,7 +133,8 @@
         </div>
     </div>
 
-    <!-- js -->
+    <!-- scripts -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 
