@@ -22,6 +22,10 @@
     <title>Search Results - Search Engine</title>
     <!-- css -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -119,6 +123,9 @@
             </div>
         </div>
     </div>
+
+    <!-- js -->
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
