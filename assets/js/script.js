@@ -1,3 +1,5 @@
+var timer;
+
 $(document).ready(function() {
 
     $(".result").on("click", function() {
@@ -16,6 +18,10 @@ $(document).ready(function() {
 
     var grid = $(".imageResults");
 
+    grid.on("layoutComplete", function() {
+        $(".gridItem img").css("visibility", "visible");
+    });
+
     grid.masonry({
         itemSelector: ".gridItem",
         columnWidth: 200,
@@ -32,6 +38,13 @@ function loadImage(src, className) {
 
     image.on("load", function() {
         $("." + className + " a").append(image);
+
+        clearTimeout(timer);
+
+        timer = setTimeout(function() {
+            $(".imageResults").masonry();
+        }, 500);
+
     });
 
     image.on("error", function() {
