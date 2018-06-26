@@ -42,30 +42,40 @@
             $query->execute();
 
             $resultsHtml = "<div class='imageResults'>";
-                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                    $id = $row["id"];
-                    $imageUrl = $row["imageUrl"];
-                    $siteUrl = $row["siteUrl"];
-                    $title = $row["title"];
-                    $alt = $row["alt"];
 
-                    if ($title) {
-                        $displayText = $title;
-                    }
-                    else if ($alt) {
-                        $displayText = $alt;
-                    }
-                    else {
-                        $displayText = $imageUrl;
-                    }
+            $count = 0;
+            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                $count++;
 
-                    $resultsHtml .= "<div class='gridItem'>
-                                        <a href='$imageUrl'>
-                                            <img src='$imageUrl'>
-                                            <span class='details'>$displayText</span>
-                                        </a>
-                                    </div>";
+                $id = $row["id"];
+                $imageUrl = $row["imageUrl"];
+                $siteUrl = $row["siteUrl"];
+                $title = $row["title"];
+                $alt = $row["alt"];
+
+                if ($title) {
+                    $displayText = $title;
                 }
+                else if ($alt) {
+                    $displayText = $alt;
+                }
+                else {
+                    $displayText = $imageUrl;
+                }
+
+                $resultsHtml .= "<div class='gridItem image$count'>
+                                    <a href='$imageUrl'>
+
+                                        <script>
+                                            $(document).ready(function() {
+                                                loadImage(\"$imageUrl\", \"image$count\");
+                                            });
+                                        </script>
+
+                                        <span class='details'>$displayText</span>
+                                    </a>
+                                </div>";
+            }
 
             $resultsHtml .= "</div>";
 
