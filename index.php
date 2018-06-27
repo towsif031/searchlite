@@ -30,7 +30,7 @@
 
         <div class="footer">
             <div class="copyright">
-                &copy;2018 A Personal Project <i>by</i> <a href="http://towsif.me" target="_blank">Towsif Ahmed Omi</a>
+                &copy; 2018 - A Personal Project <i>by</i> <a href="http://towsif.me" target="_blank">Towsif Ahmed Omi</a>
             </div>
         </div>
     </div>
