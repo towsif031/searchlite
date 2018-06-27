@@ -10,6 +10,7 @@ body {
 }
 
 .wrapper {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -20,6 +21,7 @@ body {
 }
 
 .mainSection {
+    margin-top: -100px; /* custom positioning */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -77,6 +79,38 @@ body {
     width: 282px;
     text-align: center;
 }
+
+.wrapper.indexPage .footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    background: #f2f2f2;
+    border-top: 1px solid #e4e4e4;
+    color: rgba(0,0,0,.54);
+}
+
+.wrapper.indexPage .footer .copyright {
+    line-height: 40px;
+    font-size: 15px;
+    color: #5f6368;
+    padding-left: 27px;
+    float: right;
+    white-space: nowrap;
+    margin-right: 30px;
+}
+
+.wrapper.indexPage .footer .copyright a {
+    text-decoration: none;
+}
+
+.wrapper.indexPage .footer .copyright a:hover {
+    text-decoration: underline;
+    color: #222;
+}
+
+
+/* Search Page CSS */
 
 .logoContainer img {
     width: 100%;
