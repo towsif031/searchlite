@@ -71,7 +71,7 @@ function loadImage(src, className) {
 
         $("." + className).remove();
 
-        $.post("ajax/setBroken.php", {src: src});
+        $.post("ajax/setImageBroken.php", {src: src});
 
     });
 
@@ -81,7 +81,7 @@ function loadImage(src, className) {
 
 function increaseLinkClicks(linkId, url) {
 
-    $.post("ajax/updateLinkCount.php", {linkId: linkId}).done(function(result) {
+    $.post("ajax/updateLinkClickCount.php", {linkId: linkId}).done(function(result) {
         if (result != "") {
             alert(result);
             return;
@@ -93,7 +93,7 @@ function increaseLinkClicks(linkId, url) {
 
 function increaseImageClicks(imageUrl) {
 
-    $.post("ajax/updateImageCount.php", {imageUrl: imageUrl}).done(function(result) {
+    $.post("ajax/updateImageClickCount.php", {imageUrl: imageUrl}).done(function(result) {
         if (result != "") {
             alert(result);
             return;

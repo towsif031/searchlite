@@ -8,6 +8,10 @@
     <title>Search Engine</title>
     <!-- css -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- scripts -->
+    <!-- for hiding browser tooltip for invalid input -->
+    <script src="assets/js/tooltiphider.js"></script>
 </head>
 
 <body>
@@ -18,7 +22,7 @@
             </div>
             <div class="searchContainer">
                 <form action="search.php" method="GET">
-                    <input type="text" class="searchBox" name="term">
+                    <input type="text" class="searchBox" name="term" autofocus required oninvalid="this.setCustomValidity('Please Enter valid email')" oninput="setCustomValidity('')">
                     <input type="submit" class="searchButton" value="Search">
                 </form>
             </div>

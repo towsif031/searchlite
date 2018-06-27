@@ -3,10 +3,12 @@
     include("classes/SiteResultsProvider.php");
     include("classes/ImageResultsProvider.php");
 
-    if(isset($_GET["term"])){
-        $term = $_GET["term"];
+    if(!isset($_GET["term"]) || $_GET["term"] == ""){
+        header('Location: index.php');
+        exit;
     } else {
-        echo "No search term";
+        $term = $_GET["term"];
+        // echo "No search term";
     }
 
     $type = isset($_GET["type"]) ? $_GET["type"] : "sites";
@@ -28,6 +30,10 @@
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    
+    <!-- scripts -->
+    <!-- for hiding browser tooltip for invalid input -->
+    <script src="assets/js/tooltiphider.js"></script>
 </head>
 
 <body>
@@ -43,7 +49,7 @@
                     <form action="search.php" method="GET">
                         <div class="searchBarContainer">
                             <input type="hidden" name="type" value="<?php echo $type; ?>">
-                            <input type="text" class="searchBox" name="term" value="<?php echo $term; ?>">
+                            <input type="text" class="searchBox" name="term" value="<?php echo $term; ?>" required>
                             <button class="searchButton">
                                 <img src="assets/images/icons/searching_icon.svg" alt="">
                             </button>
