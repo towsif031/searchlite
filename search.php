@@ -22,6 +22,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Search Results - Search Engine</title>
     <!-- css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- jQuery CDN -->
@@ -134,6 +135,7 @@
     </div>
 
     <!-- scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
